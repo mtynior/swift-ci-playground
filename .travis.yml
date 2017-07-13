@@ -1,0 +1,14 @@
+os:
+    - osx
+language: generic
+sudo: required
+
+osx_image: xcode9.0
+
+script:
+    - swift build
+    - swift build -c release
+    - swift test
+
+after_success:
+    - eval "$(curl -sL https://swift.vapor.sh/codecov)"
